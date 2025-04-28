@@ -12,6 +12,27 @@ const Index: React.FC = () => {
   useEffect(() => {
     // Scroll to top on page load
     window.scrollTo(0, 0);
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-in', 'opacity-100');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach((section) => {
+      section.classList.add('opacity-0');
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (

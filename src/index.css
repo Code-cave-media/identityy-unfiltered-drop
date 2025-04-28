@@ -75,7 +75,7 @@
   }
 }
 
-/* Hover link animation */
+/* Enhanced hover link animation */
 .link-underline {
   position: relative;
 }
@@ -98,17 +98,18 @@
   transform-origin: bottom left;
 }
 
-/* Custom image styles */
+/* Enhanced image styles */
 .img-grayscale {
   filter: grayscale(100%);
-  transition: filter 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .img-grayscale:hover {
   filter: grayscale(0%);
+  transform: scale(1.02);
 }
 
-/* Distortion effect for images */
+/* Enhanced distortion effect for images */
 .img-glitch {
   position: relative;
   overflow: hidden;
@@ -124,14 +125,14 @@
   background: rgba(234, 56, 76, 0.15);
   opacity: 0;
   mix-blend-mode: overlay;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .img-glitch:hover::before {
   opacity: 1;
 }
 
-/* Custom scrollbar */
+/* Enhanced custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -142,8 +143,20 @@
 
 ::-webkit-scrollbar-thumb {
   background: #000000;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ea384c;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Text selection color */
+::selection {
+  background: #ea384c;
+  color: white;
 }
