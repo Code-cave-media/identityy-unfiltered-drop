@@ -1,0 +1,162 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Permanent+Marker&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 80%;
+
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  /* Custom font for DRUK Wide simulation */
+  @font-face {
+    font-family: 'Druk Wide';
+    src: local('Arial Black');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply container max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24;
+  }
+  
+  .heading-xl {
+    @apply font-display uppercase font-black text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-none;
+  }
+  
+  .heading-lg {
+    @apply font-display uppercase font-black text-4xl md:text-5xl tracking-tighter leading-none;
+  }
+  
+  .heading-md {
+    @apply font-display uppercase font-bold text-2xl md:text-3xl tracking-tight leading-tight;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-b from-identityy-black to-identityy-gray bg-clip-text text-transparent;
+  }
+}
+
+/* Enhanced hover link animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Enhanced image styles */
+.img-grayscale {
+  filter: grayscale(100%);
+  transition: all 0.5s ease;
+}
+
+.img-grayscale:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* Enhanced distortion effect for images */
+.img-glitch {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-glitch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(234, 56, 76, 0.15);
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transition: all 0.3s ease;
+}
+
+.img-glitch:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eeeeee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ea384c;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Text selection color */
+::selection {
+  background: #ea384c;
+  color: white;
+}
